@@ -17,7 +17,7 @@ debianSetup() {
     cd /tmp/gcc-3.4
     sudo ./inst.sh amd64
     cd ${OSLAB_PATH}
-    tar zxvf ${OSLAB_PATH}/linux-0.11.tar.gz -C ${OSLAB_PATH}
+    ${OSLIB_PATH}/reset.sh
 }
 
 archSetup() {
@@ -28,7 +28,7 @@ archSetup() {
     else
         sudo pacman -U *.pkg.tar.xz
         sudo pacman -S gcc bin86 base-devel lib32-ncurses5-compat-libs
-        tar zxvf ${OSLAB_PATH}/linux-0.11.tar.gz -C ${OSLAB_PATH}
+        ${OSLIB_PATH}/reset.sh
     fi
 }
 

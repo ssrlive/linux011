@@ -77,7 +77,7 @@ make clean
 
 ```shell
 # in oslab directory
-./init.sh
+./reset.sh
 ```
 
 ### 运行
