@@ -30,7 +30,7 @@
 首先clone本仓库到某个文件夹下：
 
 ```shell
-git clone https://gitee.com/cn-guoziyang/oslab.git ~/oslab
+git clone https://github.com/ssrlive/oslab.git ~/oslab
 ```
 
 大小大概25M，请耐心等待。
@@ -39,14 +39,14 @@ git clone https://gitee.com/cn-guoziyang/oslab.git ~/oslab
 
 ```shell
 cd ~/oslab
-./setup debian
+./setup.sh debian
 ```
 
 Arch系发行版请执行（在此之前请首先添加archlinuxcn的源并获取gpg key，重要！）：
 
 ```shell
 cd ~/oslab
-./setup archlinux
+./setup.sh archlinux
 ```
 
 注意：请使用普通用户操作，当需要root权限时脚本会自动请求密码。
@@ -77,7 +77,7 @@ make clean
 
 ```shell
 # in oslab directory
-./init
+./init.sh
 ```
 
 ### 运行
@@ -85,7 +85,7 @@ make clean
 进入项目目录，执行
 
 ```shell
-./run
+./run.sh
 ```
 
 将启动Bochs虚拟机，并自动加载编译完成的`Image`文件，Bochs模拟器上将显示引导日志，最终显示`[/usr/root]#`，则运行成功。
@@ -99,7 +99,7 @@ make clean
 汇编级调试需要执行命令：
 
 ```shell
-./dbg-asm
+./dbg-asm.sh
 ```
 
 可以用命令help来查看调试系统用的基本命令。更详细的信息请查阅Bochs使用手册。
@@ -107,13 +107,13 @@ make clean
 C语言级调试稍微复杂一些。首先执行如下命令：
 
 ```shell
-./dbg-c
+./dbg-c.sh
 ```
 
 然后再打开一个终端窗口，进入oslab目录后，执行：
 
 ```shell
-./rungdb
+./rungdb.sh
 ```
 
 新终端窗口中运行的是GDB调试器。关于gdb调试器请查阅GDB使用手册。
@@ -121,7 +121,7 @@ C语言级调试稍微复杂一些。首先执行如下命令：
 除此以外，如果想使用更为强大的CGDB调试器，则在上一步中使用命令：
 
 ```shell
-./runcgdb
+./runcgdb.sh
 ```
 
 来启动cgdb。
@@ -135,7 +135,7 @@ oslab文件夹中的hdc-0.11.img文件，将在在Bochs虚拟机启动后被当�
 在虚拟机关闭时，在oslab文件夹下运行命令：
 
 ```shell
-sudo ./mount-hdc
+sudo ./mount-hdc.sh
 ```
 
 这时，hdc文件夹就成为的linux 0.11的根文件夹（`/`），此时即可随意传入传出文件，如lab2中的测试脚本等。
@@ -174,7 +174,7 @@ Windows宿主机中需要安装X11 Client，我使用的是VcXsrv，它的初始
 - 勾选Disable access controll
 - 关闭Windows Defender防火墙
 
-VcXsrv启动后，在WSL中执行`./run`启动Bochs，就会在打开Bochs窗口，测试时效果如下：
+VcXsrv启动后，在WSL中执行`./run.sh`启动Bochs，就会在打开Bochs窗口，测试时效果如下：
 
 [![B9388325092A50BD171127024F894127.md.png](https://images.gitee.com/uploads/images/2020/0523/212531_c82d2413_1910421.png)](https://img.guoziyang.top/image/llG)
 

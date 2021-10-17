@@ -1,6 +1,3 @@
 #!/bin/bash
 export OSLAB_PATH=$(cd $(dirname "${BASH_SOURCE[0]}") >/dev/null && pwd)
-
-rm -rf $OSLAB_PATH/linux-0.11
-
-tar zxvf $OSLAB_PATH/linux-0.11.tar.gz -C $OSLAB_PATH
+${OSLAB_PATH}/bochs/bochs-gdb -q -f ${OSLAB_PATH}/bochs/bochsrc-gdb.bxrc

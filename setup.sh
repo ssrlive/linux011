@@ -7,12 +7,12 @@ debianSetup() {
     sudo apt-get install -y binutils
     sudo apt-get install -y binutils-common
     sudo apt-get install -y build-essential bin86 manpages-dev libc6-dev-i386 zlib1g:i386 libncurses5:i386 libsm-dev:i386 libx11-dev:i386 libxpm-dev:i386 libexpat1:i386
-	cp $OSLAB_PATH/gcc-3.4-ubuntu.tar.gz /tmp
+	cp ${OSLAB_PATH}/gcc-3.4-ubuntu.tar.gz /tmp
 	tar zxvf /tmp/gcc-3.4-ubuntu.tar.gz -C /tmp/
 	cd /tmp/gcc-3.4
 	sudo ./inst.sh amd64
-	cd $OSLAB_PATH
-	tar zxvf $OSLAB_PATH/linux-0.11.tar.gz -C $OSLAB_PATH
+	cd ${OSLAB_PATH}
+	tar zxvf ${OSLAB_PATH}/linux-0.11.tar.gz -C ${OSLAB_PATH}
 }
 
 archSetup() {
@@ -23,7 +23,7 @@ archSetup() {
     else
         sudo pacman -U *.pkg.tar.xz
         sudo pacman -S gcc bin86 base-devel lib32-ncurses5-compat-libs
-        tar zxvf $OSLAB_PATH/linux-0.11.tar.gz -C $OSLAB_PATH
+        tar zxvf ${OSLAB_PATH}/linux-0.11.tar.gz -C ${OSLAB_PATH}
     fi
 }
 
