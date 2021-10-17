@@ -12,12 +12,12 @@ debianSetup() {
     curl -L http://cz.archive.ubuntu.com/ubuntu/pool/main/r/readline/libreadline7_7.0-3_amd64.deb -o /tmp/libreadline.deb
     sudo dpkg -i /tmp/libreadline.deb
 
-	cp ${OSLAB_PATH}/gcc-3.4-ubuntu.tar.gz /tmp
-	tar zxvf /tmp/gcc-3.4-ubuntu.tar.gz -C /tmp/
-	cd /tmp/gcc-3.4
-	sudo ./inst.sh amd64
-	cd ${OSLAB_PATH}
-	tar zxvf ${OSLAB_PATH}/linux-0.11.tar.gz -C ${OSLAB_PATH}
+    cp ${OSLAB_PATH}/gcc-3.4-ubuntu.tar.gz /tmp
+    tar zxvf /tmp/gcc-3.4-ubuntu.tar.gz -C /tmp/
+    cd /tmp/gcc-3.4
+    sudo ./inst.sh amd64
+    cd ${OSLAB_PATH}
+    tar zxvf ${OSLAB_PATH}/linux-0.11.tar.gz -C ${OSLAB_PATH}
 }
 
 archSetup() {
@@ -32,13 +32,16 @@ archSetup() {
     fi
 }
 
-if [ $# -lt 1 ]; then
-	echo "Please add your distro name(debian, archlinux) as the first argument!"
-elif [ $1 = "debian" ]; then
-	debianSetup
-elif [ $1 = "archlinux" ]; then
-	archSetup
-else
-	echo "This distro is not supported!(debian and archlinux is supported at present)"
-fi
+function main() {
+    if [ $# -lt 1 ]; then
+        echo "Please add your distro name(debian, archlinux) as the first argument!"
+    elif [ $1 = "debian" ]; then
+        debianSetup
+    elif [ $1 = "archlinux" ]; then
+        archSetup
+    else
+        echo "This distro is not supported!(debian and archlinux is supported at present)"
+    fi
+}
 
+main $1
