@@ -107,13 +107,13 @@ make clean
 C语言级调试稍微复杂一些。首先执行如下命令：
 
 ```shell
-./dbg-c.sh
+./env-dbg-c.sh
 ```
 
 然后再打开一个终端窗口，进入oslab目录后，执行：
 
 ```shell
-./rungdb.sh
+./dbg-gdb.sh
 ```
 
 新终端窗口中运行的是GDB调试器。关于gdb调试器请查阅GDB使用手册。
@@ -121,7 +121,7 @@ C语言级调试稍微复杂一些。首先执行如下命令：
 除此以外，如果想使用更为强大的CGDB调试器，则在上一步中使用命令：
 
 ```shell
-./runcgdb.sh
+./dbg-cgdb.sh
 ```
 
 来启动cgdb。
